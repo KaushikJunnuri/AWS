@@ -29,7 +29,7 @@ def is_key_exists(curr_key):
                              Key= curr_key)
         return True
     except s3_client.exceptions.NoSuchKey:
-        print("ERROR: is_key_exists - {}".format(e))
+        print("ERROR: is_key_exists")
         return False
 
 def upload_to_bucket():
@@ -37,14 +37,14 @@ def upload_to_bucket():
         all_file_names = get_files()
         for file in all_file_names:
             obj_name= str(os.path.basename(file))
-            if not is_key_exists(obj_name):
+            if not is_key_exists('/junn/'+obj_name):
                 
                 print("uploading file - {}".format(obj_name))
 
                 response= s3_client.upload_file(
                                     FILE_PATH+'/'+obj_name,
                                     Bucket=BUCKET_NAME,
-                                    Key=obj_name
+                                    Key='junn/'+obj_name
                                     )   
                 print("uploaded file - {}".format(obj_name))
             else:
