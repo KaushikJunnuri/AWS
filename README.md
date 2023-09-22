@@ -1,5 +1,5 @@
 # AWS
-# Project 1:
+# Project-1:
     # aws-glue:
       Project description: 
           1. An ETL pipeline, performing transformations, storing processed data into Redshift and raw data back to target S3 bucket.
